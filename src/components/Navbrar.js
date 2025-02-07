@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -12,8 +11,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-[#1f2937] text-white shadow-lg fixed w-full z-10">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full bg-[#1f2937] text-white shadow-lg z-50">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link
           to="/"
@@ -24,37 +23,28 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 items-center">
-          <Link
-            to="/"
-            className="text-lg hover:text-gray-300 transition-colors duration-300"
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className="text-lg hover:text-gray-300 transition-colors duration-300"
-          >
-            About Us
-          </Link>
-          <Link
-            to="/contact"
-            className="text-lg hover:text-gray-300 transition-colors duration-300"
-          >
-            Contact Us
-          </Link>
+          {["Home", "About Us", "Contact Us"].map((item, index) => (
+            <Link
+              key={index}
+              to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}
+              className="relative text-lg font-medium transition-all duration-300 hover:text-gray-300 before:absolute before:left-0 before:bottom-[-3px] before:h-[2px] before:w-0 before:bg-blue-500 before:transition-all before:duration-300 hover:before:w-full"
+            >
+              {item}
+            </Link>
+          ))}
 
           {/* Right Side */}
           {!loginStatus ? (
             <Link
               to="/login"
-              className="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+              className="px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition-all duration-300"
             >
               Login
             </Link>
           ) : (
             <Link
               to="/profile"
-              className="px-4 py-2 bg-green-500 rounded-lg hover:bg-green-600 transition-colors duration-300"
+              className="px-5 py-2 rounded-lg bg-green-500 hover:bg-green-600 transition-all duration-300"
             >
               Profile
             </Link>
@@ -63,57 +53,62 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden"
+          className="md:hidden focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          <div
+            className={`w-6 h-[3px] bg-white mb-1 transition-all ${
+              isMobileMenuOpen ? "rotate-45 translate-y-[5px]" : ""
+            }`}
+          ></div>
+          <div
+            className={`w-6 h-[3px] bg-white mb-1 transition-all ${
+              isMobileMenuOpen ? "opacity-0" : ""
+            }`}
+          ></div>
+          <div
+            className={`w-6 h-[3px] bg-white transition-all ${
+              isMobileMenuOpen ? "-rotate-45 -translate-y-[5px]" : ""
+            }`}
+          ></div>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#1f2937] text-center space-y-4 py-4">
+      <div
+        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-[#1f2937] flex flex-col items-center justify-center space-y-6 text-xl transition-transform duration-500 ${
+          isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        }`}
+      >
+        {["Home", "About Us", "Contact Us"].map((item, index) => (
           <Link
-            to="/"
-            className="block text-lg hover:text-gray-300 transition-colors duration-300"
+            key={index}
+            to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}
+            className="relative hover:text-gray-300 transition-colors duration-300 before:absolute before:left-0 before:bottom-[-3px] before:h-[2px] before:w-0 before:bg-blue-500 before:transition-all before:duration-300 hover:before:w-full"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Home
+            {item}
           </Link>
-          <Link
-            to="/about"
-            className="block text-lg hover:text-gray-300 transition-colors duration-300"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            About Us
-          </Link>
-          <Link
-            to="/contact"
-            className="block text-lg hover:text-gray-300 transition-colors duration-300"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Contact Us
-          </Link>
+        ))}
 
-          {!loginStatus ? (
-            <Link
-              to="/login"
-              className="block px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Login
-            </Link>
-          ) : (
-            <Link
-              to="/profile"
-              className="block px-4 py-2 bg-green-500 rounded-lg hover:bg-green-600 transition-colors duration-300"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Profile
-            </Link>
-          )}
-        </div>
-      )}
+        {!loginStatus ? (
+          <Link
+            to="/login"
+            className="px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition-all duration-300"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Login
+          </Link>
+        ) : (
+          <Link
+            to="/profile"
+            className="px-5 py-2 rounded-lg bg-green-500 hover:bg-green-600 transition-all duration-300"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Profile
+          </Link>
+        )}
+      </div>
     </nav>
   );
 };

@@ -9,51 +9,15 @@ import { section3data } from "../utils/data";
 import hex from "../images/hexagon.png";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import ServiceSection from "../components/ServiceSection";
+import HeroSection from "../components/HeroSection";
 const Home = () => {
   const [active, setActive] = useState(1);
 
   return (
     <div className="homeBg w-[100vw]">
       {/* Hero Section */}
-<div className="relative h-screen w-full bg-cover bg-center text-white" style={{ backgroundImage: 'url(/path-to-your-image.jpg)' }}>
-  <div className="absolute inset-0 bg-black bg-opacity-50"></div> {/* Overlay for better text visibility */}
-
-  <div className="relative z-10 text-center px-6 md:px-16 flex flex-col items-center justify-center h-full space-y-8">
-    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
-      Welcome to RCM <br /> HealthCare
-    </h1>
-    <p className="text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto">
-      Your trusted partner in optimizing your practice's medical billing <br />
-      and streamlining your day-to-day operations.
-    </p>
-
-    {/* Cards Section */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 w-full max-w-6xl px-4 md:px-0">
-      {/* Card 1 */}
-      <div className="bg-white bg-opacity-90 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 text-black">
-        <h3 className="text-2xl font-bold mb-3">Efficient Billing</h3>
-        <p className="text-base">Streamline your medical billing process with our cutting-edge solutions.</p>
-      </div>
-
-      {/* Card 2 */}
-      <div className="bg-white bg-opacity-90 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 text-black">
-        <h3 className="text-2xl font-bold mb-3">Credentialing Services</h3>
-        <p className="text-base">Ensure smooth onboarding and compliance with our credentialing support.</p>
-      </div>
-
-      {/* Card 3 */}
-      <div className="bg-white bg-opacity-90 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 text-black">
-        <h3 className="text-2xl font-bold mb-3">24/7 Support</h3>
-        <p className="text-base">Our team is always ready to assist you with any operational challenges.</p>
-      </div>
-    </div>
-  </div>
-
-  {/* Scroll Down Button */}
-  <button className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-4xl animate-bounce text-white">
-    <MdKeyboardDoubleArrowDown />
-  </button>
-</div>
+      < HeroSection/>
 {/* End Hero Section */}
 
      {/* Section 2 */}
@@ -79,228 +43,166 @@ const Home = () => {
 </section>
 {/* End Section 2 */}
       {/* Section 3 */}
-      <section className="flex flex-col items-center pb-36 bg-gray-50">
-  <div className="container px-4">
-    <h1 className="text-4xl md:text-5xl text-center font-extrabold leading-tight mb-8 text-[#21c78f] transition-all duration-500 ease-in-out">
-      Transform your <br /> practice with our <br /> top-tier services
+      <div>
+      {/* Other Sections */}
+      <ServiceSection />
+    </div>
+      {/* KPI's */}
+      <section className="bg-gradient-to-br from-green-400 to-green-700 flex flex-col items-center py-[100px]">
+  <div className="container flex flex-col xl:flex-row w-[100%] justify-between items-center px-6">
+    <h1 className="text-[35px] font-bold leading-none mb-[20px] text-white xl:text-left text-center">
+      We know what it <br /> takes to boost your <br />
+      bottom line, and <br /> we have the <br /> numbers to prove it.
     </h1>
 
-    {/* Navigation Buttons with Transitions */}
-    <div className="flex flex-wrap justify-center gap-4 font-semibold text-lg pt-6">
+    <div className="flex flex-wrap xl:flex-nowrap justify-center relative w-[60%] gap-6">
       {[
-        { id: 1, label: "Medical Billing Services" },
-        { id: 2, label: "Credentialing Services" },
-        { id: 3, label: "Pre-Authorization Services" },
-        { id: 4, label: "Front Office Services" }
-      ].map((service) => (
-        <button
-          key={service.id}
-          onClick={() => setActive(service.id)}
-          className={`px-4 py-2 border-b-4 transition-all duration-300 ease-in-out transform 
-            ${
-              active === service.id
-                ? "text-[#21c78f] border-b-[#21c78f] scale-105"
-                : "text-gray-700 border-b-transparent hover:text-[#21c78f] hover:border-b-[#21c78f] hover:scale-105"
-            }`}
+        "30 Days in A/R (Goal)",
+        "15 Days to receive payments",
+        "99% Clean Claim Submission",
+        "30% Revenue increase with clean claims submission",
+      ].map((text, index) => (
+        <div
+          key={index}
+          className="relative w-[200px] h-[200px] flex items-center justify-center bg-white/10 
+                     backdrop-blur-lg border border-white/20 rounded-2xl shadow-[0_4px_20px_rgba(255,255,255,0.2)] 
+                     transition-all duration-500 ease-in-out transform hover:scale-110 
+                     hover:shadow-[0_10px_30px_rgba(255,255,255,0.3)] hover:bg-gradient-to-br 
+                     hover:from-green-300 hover:to-green-600 animate-floating opacity-0 translate-y-10"
+          style={{
+            animationDelay: `${index * 0.3}s`, // Delayed animations for staggered effect
+            animationFillMode: "forwards",
+          }}
         >
-          {service.label}
-        </button>
+          <p className="text-white font-bold text-center">{text}</p>
+        </div>
       ))}
-    </div>
-
-    {/* Content Section with Fade Transition */}
-    <div className="mt-12 flex flex-col md:flex-row items-center md:items-start gap-8 transition-all duration-500 ease-in-out">
-      <img
-        src={image3}
-        alt="Service Illustration"
-        className="rounded-lg shadow-md md:max-w-md w-full transition-transform duration-500 ease-in-out hover:scale-105"
-      />
-
-      <div className="max-w-2xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 transition-opacity duration-300 ease-in-out">
-          {active === 1 && "Medical Billing Services"}
-          {active === 2 && "Credentialing Services"}
-          {active === 3 && "Pre-Authorization Services"}
-          {active === 4 && "Front Office Services"}
-        </h2>
-
-        <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed transition-opacity duration-500 ease-in-out">
-          {active === 1 &&
-            "Secure your practice’s financial position with RCM Healthcare’s comprehensive medical billing services."}
-          {active === 2 &&
-            "Outsource your credentialing/recredentialing needs to RCM Healthcare’s team of experts and experience seamless operations."}
-          {active === 3 &&
-            "Certain medical procedures require approval from patients’ insurance companies. We ensure smooth pre-authorization processes."}
-          {active === 4 &&
-            "RCM Healthcare’s front-office services handle and manage all essential administrative tasks to optimize your workflow."}
-        </p>
-
-        {/* Dynamic List with Transition */}
-        <ul className="list-disc list-inside text-gray-700 space-y-3 marker:text-[#21c78f] transition-all duration-500 ease-in-out">
-          {active === 1 &&
-            section3data.section1.map((item, i) => (
-              <li key={i} className="text-base md:text-lg">
-                {item}
-              </li>
-            ))}
-          {active === 2 &&
-            section3data.section2.map((item, i) => (
-              <li key={i} className="text-base md:text-lg">
-                {item}
-              </li>
-            ))}
-          {active === 3 &&
-            section3data.section3.map((item, i) => (
-              <li key={i} className="text-base md:text-lg">
-                {item}
-              </li>
-            ))}
-          {active === 4 &&
-            section3data.section4.map((item, i) => (
-              <li key={i} className="text-base md:text-lg">
-                {item}
-              </li>
-            ))}
-        </ul>
-      </div>
     </div>
   </div>
 </section>
 
-      {/* Section 4 */}
-      <section className="bg-grad flex flex-col items-center py-[100px]">
-        <div className="container items-center flex flex-col xl:flex-row w-[100%] justify-between">
-          <h1 className="text-[35px] text-left font-bold leading-none mb-[20px]  text-white">
-            We know what it <br /> takes to boost your <br />
-            bottom line, and <br /> we have the <br /> numbers to prove it.
+<style>
+{`
+  @keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .animate-floating {
+    animation: floating 3s infinite ease-in-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .opacity-0 {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+`}
+</style>
+        {/* Section 5 */}
+        <section className="flex xl:flex-row flex-col items-center mb-[100px] opacity-0 translate-y-10 animate-fadeIn">
+  <img
+    src={image4}
+    className="md:max-w-[700px] md:max-h-[700px] max-w-[100%] rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-105"
+    alt="RCM Healthcare"
+  />
+  <div className="ml-[50px] max-w-[600px]">
+    <h1 className="text-[50px] font-bold leading-none mb-[20px] pt-[80px] md:pt-0 text-[#21c78f]">
+      Why Choose RCM <br /> Healthcare
+    </h1>
+    <p className="md:text-[18px] text-[15px] mb-[20px]">
+      RCM Healthcare has been providing medical billing, credentialing, 
+      pre-authorization, and front-office management services to physicians. 
+      We’re experts in our field, and our team is passionate about helping doctors.
+    </p>
+    <p className="md:text-[18px] text-[15px]">
+      Our goal is to provide you with the support you need so you can 
+      focus on what you do best: caring for your patients.
+    </p>
+    <p className="md:text-[18px] text-[15px] mt-[20px]">
+      Contact us today to learn more about how we can help improve your 
+      practice’s operations and increase your revenue.
+    </p>
+    <Link className="flex mt-[20px] items-center group" to={"/contact"}>
+      <PiArrowFatLineRightFill className="mr-[10px] text-[20px] text-[#21c78f] transition-all duration-300 group-hover:translate-x-2" /> 
+      <span className="font-bold text-[#21c78f] transition-all duration-300 group-hover:text-[#16a56f]">
+        Contact Us
+      </span>
+    </Link>
+  </div>
+</section>
+
+<style>
+{`
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+`}
+</style>
+        {/* services */}
+        <section className="flex flex-col items-center bg-gray-100 py-16">
+  <div className="container px-6">
+    <h1 className="font-extrabold text-[40px] text-gray-900 mb-10 text-center leading-tight">
+      Discover the possibilities that lie ahead of you
+    </h1>
+    <div className="flex flex-wrap justify-center gap-6">
+      {[
+        {
+          title: "Evaluation",
+          text: "We understand that every practice has unique needs and challenges...",
+        },
+        {
+          title: "Planning",
+          text: "Our experienced teams are ready to take the reins and bring your strategy into play...",
+        },
+        {
+          title: "Execution",
+          text: "We help you stay on top of the ever-changing healthcare landscape...",
+        },
+        {
+          title: "Support",
+          text: "We provide the necessary tools and offer ongoing support...",
+        },
+      ].map((service, index) => (
+        <div
+          key={index}
+          className="relative w-[90%] md:w-[48%] xl:w-[23%] p-6 text-center rounded-3xl shadow-2xl bg-white border-4 border-gray-300 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-[5px_5px_15px_rgba(0,0,0,0.3)] hover:border-[#21c78f] hover:bg-gradient-to-r hover:from-[#21c78f] hover:to-[#218fc7]"
+        >
+          <div className="absolute inset-0 rounded-3xl border-4 border-white opacity-50"></div>
+          <h1 className="text-gray-900 font-bold text-[24px] mb-4 transition-colors duration-300 hover:text-white">
+            {service.title}
           </h1>
-          <div className="flex flex-wrap xl:flex-nowrap md:justify-between  relative w-[60%]">
-            <span className="relative">
-              <img src={hex} className="max-w-[200px]" alt=""></img>
-              <p className="absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%] font-bold leading-none">
-                30 Days in <br /> A/R (Goal)
-              </p>
-            </span>
-            <span className="relative">
-              <img src={hex} className="max-w-[200px]" alt=""></img>
-              <p className="absolute top-[50%] translate-y-[-50%] text-center left-[50%] translate-x-[-50%] font-bold leading-none">
-                15 Days to <br /> receive <br /> payments
-              </p>
-            </span>
-            <span className="relative">
-              <img src={hex} className="max-w-[200px]" alt=""></img>
-              <p className="absolute top-[50%] translate-y-[-50%] left-[50%] text-center translate-x-[-50%] font-bold leading-none">
-                99% Clean <br /> Claim Submission
-              </p>
-            </span>
-            <span className="relative">
-              <img src={hex} className="max-w-[200px]" alt=""></img>
-              <p className="absolute top-[50%] translate-y-[-50%] text-center left-[50%] translate-x-[-50%] font-bold leading-none">
-                30% Revenue increase with clean claims submission
-              </p>
-            </span>
-          </div>
-        </div>
-      </section>
-      {/* Section 5 */}
-      <section className="flex xl:flex-row flex-col    items-center mb-[100px]">
-        <img
-          src={image4}
-          className="md:max-w-[700px] md:max-h-[700px] max-w-[100%]"
-          alt=""
-        />
-        <div className="ml-[50px]">
-          <h1 className="text-[50px] font-bold leading-none mb-[20px] pt-[80px] md:pt-0 text-[#21c78f]">
-            Why Choose RCM <br></br>Healthcare
-          </h1>
-          <p className="md:text-[18px] text-[15px] mb-[20px]">
-            RCM Healthcare has been providing medical billing, credentialing,
-            pre-authorization, and front-office management services to
-            physicians. We’re experts in our field, and our team is passionate
-            about helping doctors
+          <p className="text-gray-700 transition-colors duration-300 hover:text-white">
+            {service.text}
           </p>
-          <p className="md:text-[18px] text-[15px]">
-            Our goal is to provide you with the support you need so you can
-            focus on what you do best: caring for your patients.
-          </p>
-          <p className="md:text-[18px] text-[15px] mt-[20px]">
-            Contact us today to learn more about how we can help improve your
-            practice’s operations and increase your revenue.
-          </p>
-          <Link className="flex mt-[20px] items-center" to={"/contact"}>
-            <PiArrowFatLineRightFill className="mr-[10px] text-[20px] text-[#21c78f]" />{" "}
-            <span className="font-bold">Contact Us</span>
-          </Link>
         </div>
-      </section>
-      {/* Section 6 */}
-      <section className="flex flex-col items-center ">
-        <div className="container">
-          <h1 className="font-bold text-[35px] mb-[33px] text-center">
-            Discover the possibilities that lie ahead of you
-          </h1>
-          <div className="flex md:flex-row flex-col justify-between">
-            <div className="bg-[#21c78f] w-[100%] xl:w-[25%] m-3 text-center p-[20px] ">
-              <h1 className="text-white font-bold text-[22px] mb-[15px]">
-                Evaluation
-              </h1>
-              <p>
-                We understand that every practice has unique needs and
-                challenges. That’s why we take the time to sit down with you and
-                assess your practice’s current standing in order to develop a
-                customized plan tailored to your needs.
-              </p>
-            </div>
-            <div className="bg-[#21c78f] w-[100%] xl:w-[25%] m-3 text-center p-[20px]">
-              <h1 className="text-white font-bold text-[22px] mb-[15px]">
-                Planning
-              </h1>
-              <p>
-                Our experienced teams are ready to take the reins and bring your
-                strategy into play. We work with your existing systems to craft
-                solutions and deliver the best results.
-              </p>
-            </div>
-            <div className="bg-[#21c78f] w-[100%] xl:w-[25%] m-3 text-center p-[20px]">
-              <h1 className="text-white font-bold text-[22px] mb-[15px]">
-                Execution
-              </h1>
-              <p>
-                We help you stay on top of the ever-changing healthcare
-                landscape and ensure your strategies are implemented efficiently
-                to boost your practice’s bottom line.
-              </p>
-            </div>
-            <div className="bg-[#21c78f] w-[100%] xl:w-[25%] m-3 text-center p-[20px]">
-              <h1 className="text-white font-bold text-[22px] mb-[15px]">
-                Support
-              </h1>
-              <p>
-                We provide the necessary tools and offer ongoing support to
-                ensure everything stays on track. We troubleshoot problems and
-                make adjustments as required to accommodate your changing needs.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="flex flex-col items-center pb-[100px]">
-        <div className="container mt-[120px] flex md:flex-row justify-between">
-          <div>
-            <h1 className="text-[#21c78f] text-[50px] font-bold">Start Now</h1>
-            <p className="text-[18px]">
-              To operate more efficiently and maximize <br /> your revenue
-              potentially
-            </p>
-          </div>
-          <Link className="flex mt-[20px] items-center" to={"/contact"}>
-            <PiArrowFatLineRightFill className="mr-[10px] text-[60px] text-[#21c78f]" />{" "}
-            <span className="font-[900] text-[50px]">Contact Us</span>
-          </Link>
-        </div>
-      </section>
-      <Footer />
+      ))}
     </div>
+  </div>
+</section>
+  <Footer />
+  </div>
   );
 };
 export default Home;
