@@ -31,11 +31,11 @@ const Home = () => {
 
   {/* Text Content */}
   <div className="md:ml-10 mt-8 md:mt-0">
-    <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-[#21c78f]">
-      We Are RCM <br /> Healthcare
+    <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-[#022120e9]">
+      We Are ThriveCycle
     </h1>
-    <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-      RCM Healthcare is dedicated to providing high-quality business process
+    <p className="text-lg md:text-xl text-black leading-relaxed">
+      ThriveCycle is dedicated to providing high-quality business process
       outsourcing services to physicians and practices of all specialties.
     </p>
     
@@ -48,7 +48,7 @@ const Home = () => {
       <ServiceSection />
     </div>
       {/* KPI's */}
-      <section className="bg-gradient-to-br from-green-400 to-green-700 flex flex-col items-center py-[100px]">
+      {/* <section className="bg-gradient-to-br from-green-400 to-green-700 flex flex-col items-center py-[100px]">
   <div className="container flex flex-col xl:flex-row w-[100%] justify-between items-center px-6">
     <h1 className="text-[35px] font-bold leading-none mb-[20px] text-white xl:text-left text-center">
       We know what it <br /> takes to boost your <br />
@@ -79,9 +79,9 @@ const Home = () => {
       ))}
     </div>
   </div>
-</section>
+</section> */}
 
-<style>
+{/* <style>
 {`
   @keyframes floating {
     0% { transform: translateY(0); }
@@ -108,20 +108,20 @@ const Home = () => {
     animation: fadeInUp 0.8s ease-out forwards;
   }
 `}
-</style>
+</style> */}
         {/* Section 5 */}
         <section className="flex xl:flex-row flex-col items-center mb-[100px] opacity-0 translate-y-10 animate-fadeIn">
   <img
     src={image4}
-    className="md:max-w-[700px] md:max-h-[700px] max-w-[100%] rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-105"
+    className="md:max-w-[700px] md:max-h-[700px] max-w-[100%] rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-105 px-4"
     alt="RCM Healthcare"
   />
   <div className="ml-[50px] max-w-[600px]">
-    <h1 className="text-[50px] font-bold leading-none mb-[20px] pt-[80px] md:pt-0 text-[#21c78f]">
-      Why Choose RCM <br /> Healthcare
+    <h1 className="text-[50px] font-bold leading-none mb-[20px] pt-[80px] md:pt-0 text-[#022120d4]">
+      Why Choose ThriveCycle
     </h1>
     <p className="md:text-[18px] text-[15px] mb-[20px]">
-      RCM Healthcare has been providing medical billing, credentialing, 
+      ThriveCycle has been providing medical billing, credentialing, 
       pre-authorization, and front-office management services to physicians. 
       We’re experts in our field, and our team is passionate about helping doctors.
     </p>
@@ -134,8 +134,8 @@ const Home = () => {
       practice’s operations and increase your revenue.
     </p>
     <Link className="flex mt-[20px] items-center group" to={"/contact"}>
-      <PiArrowFatLineRightFill className="mr-[10px] text-[20px] text-[#21c78f] transition-all duration-300 group-hover:translate-x-2" /> 
-      <span className="font-bold text-[#21c78f] transition-all duration-300 group-hover:text-[#16a56f]">
+      <PiArrowFatLineRightFill className="mr-[10px] text-[20px] text-[#022120e0] transition-all duration-300 group-hover:translate-x-2" /> 
+      <span className="font-bold text-[#022120] transition-all duration-300 group-hover:text-[#fbbf3c]">
         Contact Us
       </span>
     </Link>
@@ -163,7 +163,7 @@ const Home = () => {
         {/* services */}
         <section className="flex flex-col items-center bg-gray-100 py-16">
   <div className="container px-6">
-    <h1 className="font-extrabold text-[40px] text-gray-900 mb-10 text-center leading-tight">
+    <h1 className="font-extrabold text-[40px] text-[#022120dd] mb-10 text-center leading-tight">
       Discover the possibilities that lie ahead of you
     </h1>
     <div className="flex flex-wrap justify-center gap-6">
@@ -187,13 +187,17 @@ const Home = () => {
       ].map((service, index) => (
         <div
           key={index}
-          className="relative w-[90%] md:w-[48%] xl:w-[23%] p-6 text-center rounded-3xl shadow-2xl bg-white border-4 border-gray-300 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-[5px_5px_15px_rgba(0,0,0,0.3)] hover:border-[#21c78f] hover:bg-gradient-to-r hover:from-[#21c78f] hover:to-[#218fc7]"
+          className="relative w-[90%] md:w-[48%] xl:w-[23%] p-6 text-center rounded-3xl shadow-2xl bg-white border-4 border-gray-300 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-[5px_5px_15px_rgba(0,0,0,0.3)] hover:border-[#022120eb] hover:bg-gradient-to-r hover:from-[#fbbf3c] hover:to-black group"
         >
           <div className="absolute inset-0 rounded-3xl border-4 border-white opacity-50"></div>
-          <h1 className="text-gray-900 font-bold text-[24px] mb-4 transition-colors duration-300 hover:text-white">
+          
+          {/* Title - Changes to White on Hover */}
+          <h1 className="text-gray-900 font-bold text-[24px] mb-4 transition-all duration-300 group-hover:text-white">
             {service.title}
           </h1>
-          <p className="text-gray-700 transition-colors duration-300 hover:text-white">
+
+          {/* Paragraph - Changes to White on Hover */}
+          <p className="text-gray-700 transition-all duration-300 group-hover:text-white">
             {service.text}
           </p>
         </div>

@@ -30,7 +30,7 @@ const ServiceSection = () => {
   return (
     <section className="flex flex-col items-center pb-36 bg-gray-50">
       <div className="container px-4">
-        <h1 className="text-4xl md:text-5xl text-center font-extrabold leading-tight mb-8 text-[#21c78f] transition-all duration-500 ease-in-out">
+        <h1 className="text-4xl md:text-5xl text-center font-extrabold leading-tight mb-8 text-[#022120e2] transition-all duration-500 ease-in-out">
           Transform your <br /> practice with our <br /> top-tier services
         </h1>
 
@@ -48,8 +48,8 @@ const ServiceSection = () => {
               className={`px-4 py-2 border-b-4 transition-all duration-300 ease-in-out transform 
                 ${
                   active === service.id
-                    ? "text-[#21c78f] border-b-[#21c78f] scale-110"
-                    : "text-gray-700 border-b-transparent hover:text-[#21c78f] hover:border-b-[#21c78f] hover:scale-105"
+                    ? "text-[#fbbf3c] border-b-[#fbbf3c] scale-110"
+                    : "text-black border-b-transparent hover:text-[#fbbf3c] hover:border-b-[#fbbf3c] hover:scale-105"
                 }`}
             >
               {service.label}

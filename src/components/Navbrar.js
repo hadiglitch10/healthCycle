@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../images/logo.jpg";
 
 const Navbar = () => {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -11,14 +12,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#1f2937] text-white shadow-lg z-50">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+    <nav className="bg-[#022120] text-white shadow-lg fixed w-full z-50 py-2">
+      <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link
-          to="/"
-          className="font-extrabold text-2xl md:text-3xl hover:scale-105 transition-transform duration-300"
-        >
-          RCM Health
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="RCM Health Logo" className="h-14 w-auto mr-3" /> 
         </Link>
 
         {/* Desktop Menu */}
@@ -27,7 +25,7 @@ const Navbar = () => {
             <Link
               key={index}
               to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}
-              className="relative text-lg font-medium transition-all duration-300 hover:text-gray-300 before:absolute before:left-0 before:bottom-[-3px] before:h-[2px] before:w-0 before:bg-blue-500 before:transition-all before:duration-300 hover:before:w-full"
+              className="relative text-lg font-medium transition-all duration-300 hover:text-gray-300 before:absolute before:left-0 before:bottom-[-3px] before:h-[2px] before:w-0 before:bg-[#fbbf3c] before:transition-all before:duration-300 hover:before:w-full"
             >
               {item}
             </Link>
@@ -37,9 +35,9 @@ const Navbar = () => {
           {!loginStatus ? (
             <Link
               to="/login"
-              className="px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition-all duration-300"
+              className="px-5 py-2 rounded-lg bg-[#fbbf3c] hover:bg-[#c2973a] transition-all duration-300"
             >
-              Login
+              <span className="text-black font-bold">Get started</span>
             </Link>
           ) : (
             <Link

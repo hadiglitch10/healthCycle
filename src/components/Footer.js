@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"; 
 import { PiArrowFatLineRightFill } from "react-icons/pi";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
@@ -17,68 +17,73 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
-      {/* Newsletter Section */}
-      <div className="bg-[#21c78f] py-10 px-6 md:px-12 text-center md:text-left">
-        <h1 className="text-3xl font-bold">Stay Informed</h1>
-        <p className="text-gray-100 mt-2">Keep up to date on our latest stories and blogs.</p>
-
-        <div className="mt-5 flex flex-col md:flex-row items-center md:items-stretch">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            className="w-full md:w-[60%] p-3 rounded-l-md text-black outline-none"
-          />
-          <button
-            onClick={handleSubscribe}
-            className="bg-[#1d7b5c] flex items-center justify-center px-6 py-3 rounded-r-md transition-all duration-300 hover:bg-[#166d4e]"
-          >
-            <PiArrowFatLineRightFill className="text-2xl mr-2" />
-            <span className="font-bold">Subscribe</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Footer Links & Socials */}
-      <div className="container mx-auto py-10 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center border-t border-gray-700">
-        {/* Left Side - Navigation Links */}
-        <div className="flex flex-wrap justify-center md:justify-start space-x-6 md:space-x-12 text-sm md:text-md">
-          <Link to="/" className="hover:text-gray-400 transition-all duration-300">
-            Home
-          </Link>
-          <Link to="/about" className="hover:text-gray-400 transition-all duration-300">
-            About Us
-          </Link>
-          <Link to="/contact" className="hover:text-gray-400 transition-all duration-300">
-            Contact
-          </Link>
-          <Link to="/privacy" className="hover:text-gray-400 transition-all duration-300">
-            Privacy Policy
-          </Link>
+    <footer className="bg-[#022120] text-white py-16 px-6 md:px-12">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Left Section - About */}
+        <div className="space-y-4">
+          <h1 className="text-2xl font-bold text-[#fbbf3c]">ThriveCycle</h1>
+          <p className="text-gray-300 leading-relaxed">
+            We help healthcare professionals manage their practice efficiently. 
+            Stay ahead with our smart solutions.
+          </p>
         </div>
 
-        {/* Right Side - Social Media Icons */}
-        <div className="mt-6 md:mt-0 flex space-x-4">
-          <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-[#21c78f] transition-all duration-300">
-            <FaFacebookF />
-          </a>
-          <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-[#21c78f] transition-all duration-300">
-            <FaInstagram />
-          </a>
-          <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-[#21c78f] transition-all duration-300">
-            <FaTwitter />
-          </a>
-          <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-[#21c78f] transition-all duration-300">
-            <FaLinkedinIn />
-          </a>
+        {/* Middle Section - Quick Links */}
+        <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="space-y-2">
+            <h2 className="font-bold text-[#fbbf3c]">Company</h2>
+            <Link to="/" className="hover:text-[#fbbf3c] transition-all">Home</Link>
+            <Link to="/about" className="hover:text-[#fbbf3c] transition-all">About Us</Link>
+            <Link to="/contact" className="hover:text-[#fbbf3c] transition-all">Contact</Link>
+          </div>
+          <div className="space-y-2">
+            <h2 className="font-bold text-[#fbbf3c]">Legal</h2>
+            <Link to="/privacy" className="hover:text-[#fbbf3c] transition-all">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-[#fbbf3c] transition-all">Terms of Service</Link>
+          </div>
+        </div>
+
+        {/* Right Section - Newsletter & Socials */}
+        <div className="space-y-4">
+          <h2 className="font-bold text-[#fbbf3c]">Stay Informed</h2>
+          <p className="text-gray-300">Subscribe to get the latest updates and insights.</p>
+          <div className="flex items-center bg-white rounded-md overflow-hidden">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="flex-1 p-3 text-black outline-none"
+            />
+            <button
+              onClick={handleSubscribe}
+              className="bg-[#fbbf3c] p-3 text-black font-bold transition-all hover:bg-[#d98e24]"
+            >
+              <PiArrowFatLineRightFill className="text-2xl" />
+            </button>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex space-x-4">
+            <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-[#fbbf3c] transition-all">
+              <FaFacebookF />
+            </a>
+            <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-[#fbbf3c] transition-all">
+              <FaInstagram />
+            </a>
+            <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-[#fbbf3c] transition-all">
+              <FaTwitter />
+            </a>
+            <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-[#fbbf3c] transition-all">
+              <FaLinkedinIn />
+            </a>
+          </div>
         </div>
       </div>
 
       {/* Copyright */}
-      <div className="text-center py-6 text-sm bg-gray-800">
-        © {new Date().getFullYear()} RCM Health. All rights reserved.
+      <div className="text-center mt-12 text-sm text-gray-400 border-t border-gray-700 pt-6">
+        © {new Date().getFullYear()} ThriveCycle. All rights reserved.
       </div>
     </footer>
   );
