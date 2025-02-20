@@ -1,4 +1,5 @@
-import { useState } from "react"; 
+import logo from "../images/Main.png"; // Adjust path as needed
+import { useState } from "react";  
 import { PiArrowFatLineRightFill } from "react-icons/pi";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
@@ -19,23 +20,25 @@ const Footer = () => {
   return (
     <footer className="bg-[#022120] text-white py-16 px-6 md:px-12">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-        {/* Left Section - About */}
+        
+        {/* Left Section - Logo & Slogan */}
         <div className="space-y-4">
-          <h1 className="text-2xl font-bold text-[#fbbf3c]">ThriveCycle</h1>
-          <p className="text-gray-300 leading-relaxed">
-            We help healthcare professionals manage their practice efficiently. 
-            Stay ahead with our smart solutions.
-          </p>
+          <img src={logo} alt="Company Logo" className="h-12" />
+          <p className="text-gray-300 leading-relaxed">“Smarter Billing, Better Care”</p>
         </div>
 
         {/* Middle Section - Quick Links */}
         <div className="grid grid-cols-2 gap-6 text-sm">
-          <div className="space-y-2">
+          {/* Company Section - Arranged in Column */}
+          <div className="space-y-2 flex flex-col">
             <h2 className="font-bold text-[#fbbf3c]">Company</h2>
             <Link to="/" className="hover:text-[#fbbf3c] transition-all">Home</Link>
             <Link to="/about" className="hover:text-[#fbbf3c] transition-all">About Us</Link>
-            <Link to="/contact" className="hover:text-[#fbbf3c] transition-all">Contact</Link>
+            <Link to="/services" className="hover:text-[#fbbf3c] transition-all">Services</Link>
+            <Link to="/contact" className="hover:text-[#fbbf3c] transition-all">Contact Us</Link>
           </div>
+
+          {/* Legal Section */}
           <div className="space-y-2">
             <h2 className="font-bold text-[#fbbf3c]">Legal</h2>
             <Link to="/privacy" className="hover:text-[#fbbf3c] transition-all">Privacy Policy</Link>
@@ -83,7 +86,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-center mt-12 text-sm text-gray-400 border-t border-gray-700 pt-6">
-        © {new Date().getFullYear()} ThriveCycle. All rights reserved.
+        © 2024 ThriveCycle. All rights reserved.
       </div>
     </footer>
   );

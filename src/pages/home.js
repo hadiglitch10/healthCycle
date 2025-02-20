@@ -1,9 +1,9 @@
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { PiArrowFatLineRightFill } from "react-icons/pi";
 import { motion, AnimatePresence } from 'framer-motion';
-import image1 from "../images/section2.jpeg";
+import image1 from "../images/new .jpg";
 import image3 from "../images/section3.jpeg";
-import image4 from "../images/section4.jpeg";
+import image4 from "../images/new doctor.png";
 import { act, useState } from "react";
 import { section3data } from "../utils/data";
 import hex from "../images/hexagon.png";
@@ -32,11 +32,10 @@ const Home = () => {
   {/* Text Content */}
   <div className="md:ml-10 mt-8 md:mt-0">
     <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-[#022120e9]">
-      We Are ThriveCycle
+    Your Trusted Partner
     </h1>
     <p className="text-lg md:text-xl text-black leading-relaxed">
-      ThriveCycle is dedicated to providing high-quality business process
-      outsourcing services to physicians and practices of all specialties.
+    Let us at Thrive Cycle Handle the  revenue recovery hassle, while you focus on what’s important, Patient Care.
     </p>
     
   </div>
@@ -109,36 +108,35 @@ const Home = () => {
   }
 `}
 </style> */}
-        {/* Section 5 */}
-        <section className="flex xl:flex-row flex-col items-center mb-[100px] opacity-0 translate-y-10 animate-fadeIn">
-  <img
-    src={image4}
-    className="md:max-w-[700px] md:max-h-[700px] max-w-[100%] rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-105 px-4"
-    alt="RCM Healthcare"
-  />
-  <div className="ml-[50px] max-w-[600px]">
-    <h1 className="text-[50px] font-bold leading-none mb-[20px] pt-[80px] md:pt-0 text-[#022120d4]">
-      Why Choose ThriveCycle
+{/* Section 5 */}
+<section className="flex flex-col xl:flex-row items-center mb-[100px] opacity-0 translate-y-10 animate-fadeIn">
+  <div className="xl:ml-[50px] mt-8 xl:mt-0 max-w-[600px] text-center xl:text-left px-4">
+    <h1 className="text-[40px] md:text-[50px] font-bold leading-tight mb-[20px] text-[#022120d4]">
+      Why Choose ThriveCycle?
     </h1>
-    <p className="md:text-[18px] text-[15px] mb-[20px]">
-      ThriveCycle has been providing medical billing, credentialing, 
-      pre-authorization, and front-office management services to physicians. 
-      We’re experts in our field, and our team is passionate about helping doctors.
+    <p className="md:text-[18px] text-[16px] leading-relaxed">
+      We understand that billing challenges take time away from patient care. That’s why ThriveCycle handles the hassle, so you can focus on what matters—your patients.
     </p>
-    <p className="md:text-[18px] text-[15px]">
-      Our goal is to provide you with the support you need so you can 
-      focus on what you do best: caring for your patients.
+    <p className="md:text-[18px] text-[16px] leading-relaxed mt-[10px]">
+      Your practice’s success is our priority. We simplify medical billing, reduce administrative burdens, and ensure smooth cash flow—so you can provide the best care without distractions.
     </p>
-    <p className="md:text-[18px] text-[15px] mt-[20px]">
-      Contact us today to learn more about how we can help improve your 
-      practice’s operations and increase your revenue.
+    <p className="md:text-[18px] text-[16px] leading-relaxed mt-[10px]">
+      Our modular solutions streamline workflows, reduce errors, and optimize revenue—so your practice can thrive.
     </p>
-    <Link className="flex mt-[20px] items-center group" to={"/contact"}>
+    <Link className="flex mt-[20px] items-center justify-center xl:justify-start group" to={"/contact"}>
       <PiArrowFatLineRightFill className="mr-[10px] text-[20px] text-[#022120e0] transition-all duration-300 group-hover:translate-x-2" /> 
       <span className="font-bold text-[#022120] transition-all duration-300 group-hover:text-[#fbbf3c]">
         Contact Us
       </span>
     </Link>
+  </div>
+
+  <div className="relative w-full xl:w-auto">
+    <img
+      src={image4}
+      className="md:max-w-[700px] md:max-h-[700px] w-full rounded-tl-[50px] rounded-tr-xl rounded-bl-xl rounded-br-xl shadow-lg transform transition-transform duration-500 hover:scale-105"
+      alt="RCM Healthcare"
+    />
   </div>
 </section>
 
@@ -160,52 +158,8 @@ const Home = () => {
   }
 `}
 </style>
-        {/* services */}
-        <section className="flex flex-col items-center bg-gray-100 py-16">
-  <div className="container px-6">
-    <h1 className="font-extrabold text-[40px] text-[#022120dd] mb-10 text-center leading-tight">
-      Discover the possibilities that lie ahead of you
-    </h1>
-    <div className="flex flex-wrap justify-center gap-6">
-      {[
-        {
-          title: "Evaluation",
-          text: "We understand that every practice has unique needs and challenges...",
-        },
-        {
-          title: "Planning",
-          text: "Our experienced teams are ready to take the reins and bring your strategy into play...",
-        },
-        {
-          title: "Execution",
-          text: "We help you stay on top of the ever-changing healthcare landscape...",
-        },
-        {
-          title: "Support",
-          text: "We provide the necessary tools and offer ongoing support...",
-        },
-      ].map((service, index) => (
-        <div
-          key={index}
-          className="relative w-[90%] md:w-[48%] xl:w-[23%] p-6 text-center rounded-3xl shadow-2xl bg-white border-4 border-gray-300 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-[5px_5px_15px_rgba(0,0,0,0.3)] hover:border-[#022120eb] hover:bg-gradient-to-r hover:from-[#fbbf3c] hover:to-black group"
-        >
-          <div className="absolute inset-0 rounded-3xl border-4 border-white opacity-50"></div>
-          
-          {/* Title - Changes to White on Hover */}
-          <h1 className="text-gray-900 font-bold text-[24px] mb-4 transition-all duration-300 group-hover:text-white">
-            {service.title}
-          </h1>
-
-          {/* Paragraph - Changes to White on Hover */}
-          <p className="text-gray-700 transition-all duration-300 group-hover:text-white">
-            {service.text}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-  <Footer />
+  <div><Footer /></div>
+  
   </div>
   );
 };

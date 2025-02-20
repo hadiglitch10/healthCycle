@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.jpg";
+import logo from "../images/Main.png";
 
 const Navbar = () => {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -16,12 +16,12 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="RCM Health Logo" className="h-14 w-auto mr-3" /> 
+          <img src={logo} alt="RCM Health Logo" className="h-14 w-auto mr-2" /> 
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 items-center">
-          {["Home", "About Us", "Contact Us"].map((item, index) => (
+          {["Home", "About Us","Services", "Contact Us"].map((item, index) => (
             <Link
               key={index}
               to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}

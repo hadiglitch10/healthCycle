@@ -12,36 +12,35 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 md:px-16 flex flex-col items-center justify-center h-full space-y-8">
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
-          Welcome to ThriveCycle
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-[#ffbf3c] drop-shadow-lg">
+        “Smarter Billing, Better Care”
         </h1>
         <p className="text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto">
-          Your trusted partner in optimizing your practice's medical billing <br />
-          and streamlining your day-to-day operations.
+        ThriveCycle eliminates the hassle so you can focus on patient care.
         </p>
 
         {/* Cards Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 w-full max-w-6xl px-4 md:px-0">
-          {/* Card 1 */}
-          <div className="group relative bg-gradient-to-r from-[#022120] to-black rounded-2xl p-8 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl transform hover:-translate-y-3 hover:rotate-1">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white bg-opacity-10 blur-md rounded-2xl"></div>
-            <h3 className="text-2xl font-bold mb-3">Efficient Billing</h3>
-            <p className="text-base">Streamline your medical billing process with our cutting-edge solutions.</p>
-          </div>
+{/* Card 1 */}
+<div className="group relative bg-[#022120] rounded-2xl p-8 shadow-lg transition-all duration-500 hover:bg-[#ffbf3c] hover:shadow-2xl transform">
+  <h2 className="text-2xl font-bold mb-3 text-white transition-colors duration-500 group-hover:text-black">
+  How Precise Billing Can Enhance Revenue Recovery
+  </h2>
+</div>
 
-          {/* Card 2 */}
-          <div className="group relative bg-gradient-to-r from-black to-[#fbbf3c] rounded-2xl p-8 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl transform hover:-translate-y-3 hover:-rotate-1">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white bg-opacity-10 blur-md rounded-2xl"></div>
-            <h3 className="text-2xl font-bold mb-3">Credentialing Services</h3>
-            <p className="text-base">Ensure smooth onboarding and compliance with our credentialing support.</p>
-          </div>
+{/* Card 2 */}
+<div className="group relative bg-[#022120] rounded-2xl p-8 shadow-lg transition-all duration-500 hover:bg-[#ffbf3c] hover:shadow-2xl transform">
+  <h2 className="text-2xl font-bold mb-3 text-white transition-colors duration-500 group-hover:text-black">
+  Why You Need to Automate Your Medical Billing Process
+  </h2>
+</div>
 
-          {/* Card 3 */}
-          <div className="group relative bg-gradient-to-l from-[#022120] to-black rounded-2xl p-8 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl transform hover:-translate-y-3 hover:rotate-2">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white bg-opacity-10 blur-md rounded-2xl"></div>
-            <h3 className="text-2xl font-bold mb-3">24/7 Support</h3>
-            <p className="text-base">Our team is always ready to assist you with any operational challenges.</p>
-          </div>
+{/* Card 3 */}
+<div className="group relative bg-[#022120] rounded-2xl p-8 shadow-lg transition-all duration-500 hover:bg-[#ffbf3c] hover:shadow-2xl transform">
+  <h2 className="text-2xl font-bold mb-3 text-white transition-colors duration-500 group-hover:text-black">
+  How Medical Billing Enhances Patient Care
+  </h2>
+</div>
         </div>
       </div>
 
